@@ -55,8 +55,10 @@ template{display:none;}
 [hidden]{display:none;}
 
 h1{
+	margin:0 0 10px;
 	font-weight:bold;
 	font-size:26px;
 	line-height:1.4;
 	font-family:Open Sans, Arial;
 }
+p{margin:0 0 10px;}
