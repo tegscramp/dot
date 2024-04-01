@@ -1,5 +1,12 @@
 {
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "concurrently \"npm run start\" \"prometheus --config.file=prometheus.yml\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

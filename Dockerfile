@@ -1,5 +1,5 @@
 # Используйте официальный образ Node.js для сборки
-FROM node:20
+FROM node:14
 
 # Создайте директорию приложения
 WORKDIR /usr/src/app
@@ -12,10 +12,11 @@ RUN npm install
 
 # Копируйте исходный код приложения
 COPY app.js ./
-COPY /public/all.css ./public/
+COPY public/*.* ./public/
+COPY prometheus.yml /etc/prometheus/prometheus.yml
 
-# Сделайте порт 8080 доступным для мира снаружи контейнера
+# Откройте порт, на котором будет работать ваше приложение
 EXPOSE 8080
 
-# Запустите приложение
-CMD [ "node", "app.js" ]
+# Запустите приложение и Prometheus
+CMD ["node", "app.js"]
